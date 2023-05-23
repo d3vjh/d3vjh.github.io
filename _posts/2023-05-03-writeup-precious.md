@@ -1,10 +1,10 @@
- ---
- title: Precious Writeup
- author: d3vjh
- date: 2023-05-03
- categories: [Writeup, HTB]
- tags: [Linux, CTF, Easy, Ruby]
- ---
+---
+title: Precious Writeup
+author: d3vjh
+date: 2023-05-03
+categories: [Writeup, HTB]
+tags: [Linux, CTF, Easy, Ruby]
+---
  
 # Precious
 
@@ -115,7 +115,7 @@ Encontramos con que fue generado (pdfkit v0.8.6), ahora vamos a mirar como podem
 
 Encontramos en esta página: 
 
-[Command Injection in pdfkit | CVE-2022-25765 | Snyk](https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795)
+[Command Injection in pdfkit CVE-2022-25765 Snyk](https://security.snyk.io/vuln/SNYK-RUBY-PDFKIT-2869795)
 
 Que para versiones menores a la `0.8.7.2` hay una vulnerabilidad de `Command Injection` , vamos a intentar y vamos a ver como responde la página.  
 
