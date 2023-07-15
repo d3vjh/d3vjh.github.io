@@ -40,7 +40,37 @@ netstat -tulnp
 netstat -nat
 ```
 
+## tcpdump
+Para ponernos en escucha, en espera a recibir una traza icmp
+```bash
+tcpdump -i {interface} icmp -n
+```
 
+## Tratamiento de la TTY
+```bash
+script /dev/null -c bash
+Ctrl + Z
+stty raw -echo; fg
+reset xterm
+export TERM=xterm-256color
+source /etc/skel/.bashrc
+→ stty size 
+stty rows (44) columns (184)
+```
+
+
+## Tareas Cron
+
+Para ver que se está ejecutando a intervalos regulares de tiempo, podemos ejecutar este comando
+```bash
+systemctl list-timers
+```
+
+Este sirve para ver que está corriendo, y que usuario lo ha ejecutado
+
+```bash
+ps -eo user,command
+```
 
 ## Github Pages
 ### Lista

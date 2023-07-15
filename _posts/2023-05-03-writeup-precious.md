@@ -5,7 +5,7 @@ date: 2023-05-03
 categories: [Writeup, HTB]
 tags: [Linux, CTF, Easy, Ruby]
 ---
- 
+
 # Precious
 
 ![Initial Model](/assets/img/commons/Precious/Precious.png)
@@ -139,6 +139,7 @@ ruby
 ```
 
 Como adicional, hemos creado un script en Python, que nos permita levantar el servicio `HTTP` de una manera más comoda
+
 ```python
 
 #!/usr/bin/python3
@@ -206,7 +207,7 @@ def main():
         cleanup()
         sys.exit(1)
 
-    
+
     # Vamos a estar en escucha por el puerto y un tiempo de 20 seg - Con with, cerramos la conexion automaticamente por detrás
     with listen(lport, timeout=20) as shell:
         if shell.wait_for_connection():
@@ -219,7 +220,7 @@ if __name__ == '__main__':
 
 ```
 
-# Explotación
+# Explotación de Vulnerabilidades
 
 Nos movemos a `/home` y buscamos la ruta de la flag para el usuario, y a encontramos en el directorio personal del usuario henry, lo que quiere decir que debemos migrar a ese usuario para acceder.
 
@@ -248,7 +249,7 @@ henry@precious:~$ cat user.txt
 henry@precious:~$
 ```
 
-# Post-explotación
+# Post Explotación
 
 Ahora que ya tenemos dominio sobre el usuario, necesitamos elevar nuestro privilegios y convertirnos en `root`
 
