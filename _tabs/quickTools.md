@@ -28,7 +28,18 @@ Una vez tenemos los puertos, es importante obtener la versión y el servicio que
 nmap -sCV -p{ports} {ip_target} -oN target
 ```
 
+### Gobuster
 
+
+```bash
+gobuster dir -u {url} -w {wordList} -t {Threads}
+```
+
+A nivel de Subdominios: 
+
+```bash
+gobuster vhost -u {url} -w {wordList} -t {Threads:20}
+```
 
 ### Puertos y servicios
 
@@ -89,6 +100,14 @@ Este sirve para ver que está corriendo, y que usuario lo ha ejecutado
 ```bash
 ps -eo user,command
 ```
+### John The Ripper
+```bash
+john --wordlist=/usr/share/wordlists/rockyou.txt hash
+```
 
-
-
+### watch
+Para revisar el mismo comando cada $x$ tiempo:
+```bash
+watch -n {s} {command}
+watch -n 1 ls -l /bin/bash
+```
