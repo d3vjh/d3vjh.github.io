@@ -4,11 +4,10 @@ author: d3vjh
 date: 2023-05-03
 categories: [Writeup, HTB]
 tags: [Linux, CTF, Easy, Ruby]
+image: /assets/img/commons/Precious/Precious.png 
 ---
 
 # Precious
-
-![Initial Model](/assets/img/commons/Precious/Precious.png)
 
 # Recopilación de información
 
