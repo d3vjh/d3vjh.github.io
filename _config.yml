@@ -20,7 +20,7 @@ timezone: America/Bogota
 
 title: d3vjh # the main title
 
-tagline: CyberSecurity And Netowrks # it will display as the sub-title
+tagline: CyberSecurity And Networks # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   Jhonatan Moreno, Colombian Student and Pentester, Sharing Insights on Web Security.
@@ -32,7 +32,7 @@ github:
   username: d3vjh # change to your github username
 
 twitter:
-  username:  # change to your twitter username
+  username: # change to your twitter username
 
 social:
   # Change to your full name.
@@ -41,7 +41,7 @@ social:
   email: jdmorenob@udistrital.edu.co # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    # - https://twitter.com/username # change to your twitter homepage
+    # https://twitter.com/username # change to your twitter homepage
     - https://github.com/d3vjh # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
@@ -54,10 +54,6 @@ google_site_verification: # fill in to your verification string
 
 google_analytics:
   id: # fill in your Google Analytics ID
-  # Google Analytics pageviews report settings
-  pv:
-    proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path: # the local PV cache data, friendly to visitors from GFW region
 
 # Prefer color scheme setting.
 #
