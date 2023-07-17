@@ -3,7 +3,7 @@ title: Precious Writeup
 author: d3vjh
 date: 2023-05-03
 categories: [Writeup, HTB]
-tags: [Linux, CTF, Easy, Ruby]
+tags: [Linux, CTF, Easy, Pdfkit v0.8.6 Explotation, Advanced Python Scripting, Information Leakage, Abusing sudoers privilege, Yaml Deserialization Attack]
 image: /assets/img/commons/Precious/Precious.png 
 ---
 
