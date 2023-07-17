@@ -6,15 +6,15 @@ order: 4
 
 El propósito de esta sección, es ir alimentandolo, a medida que encuentre comandos recurrentes e importantes, para así tener un acceso rápido a estos, junto a una pequeña descripción
 
-- [Reconocimiento](#Reconocimiento)
+- [Reconocimiento](#reconocimiento)
   * [Nmap](#nmap)
   * [Puertos y Servicios](#puertos-y-servicios)
     - [lsof](#lsof)
     - [netstat](#netstat)
 
-# Reconocimiento
+## Reconocimiento
 
-## Nmap
+### Nmap
 
 Es una herramienta de escaneo de puertos que permite descubrir hosts en una red y determinar qué servicios están disponibles en esos hosts. Ayuda a recopilar información sobre la infraestructura de red y los sistemas objetivo.
 
@@ -30,9 +30,9 @@ nmap -sCV -p{ports} {ip_target} -oN target
 
 
 
-## Puertos y servicios
+### Puertos y servicios
 
-### lsof
+#### lsof
 Puede ser útil en la fase de enumeración para identificar procesos en ejecución y los archivos asociados a ellos, lo que puede revelar información valiosa sobre el sistema objetivo.
 
 ```bash
@@ -40,7 +40,7 @@ lsof -i :{port_number}
 lsof -i :80
 ```
 
-### netstat
+#### netstat
 
 Se utiliza para mostrar información y estadísticas relacionadas con las conexiones de red activas, los puertos abiertos y otros datos de red.
 
@@ -58,13 +58,13 @@ netstat -nat
 | `-p`    |Proceso asociado a cada conexión o servicio|
 | `-a`   |Todas las conexiones y puertos, incluyendo los que están en escucha y los que están establecidos|
 
-## tcpdump
+### tcpdump
 Para ponernos en escucha, en espera a recibir una traza icmp
 ```bash
 tcpdump -i {interface} icmp -n
 ```
 
-## Tratamiento de la TTY
+### Tratamiento de la TTY
 ```bash
 script /dev/null -c bash
 Ctrl + Z
@@ -77,7 +77,7 @@ stty rows (44) columns (184)
 ```
 
 
-## Tareas Cron
+### Tareas Cron
 
 Para ver que se está ejecutando a intervalos regulares de tiempo, podemos ejecutar este comando
 ```bash
