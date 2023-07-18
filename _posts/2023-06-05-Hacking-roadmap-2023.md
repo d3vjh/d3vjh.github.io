@@ -1,3 +1,14 @@
+---
+title: Hacking Roadmap
+author: d3vjh
+date: 2023-06-05
+categories: []
+tags: []
+image: 
+  path: /assets/img/Hacking/Hacking.png
+---
+
+
 # Hacking Roadmap 2023
 
 - [Conceptos básicos](#conceptos-basicos)

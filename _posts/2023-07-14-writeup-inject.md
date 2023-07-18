@@ -84,15 +84,15 @@ Encontramos un apartado donde es posible subir imágenes
 
 Podemos ver que se está cargando la imagen de esta manera:
 
-```
+```html
 http://10.10.11.204:8080/show_image?img=Wallpaper.jpg
 ```
 
 Lo que nos hace pensar en un `Local File Inclusion (LFI)`
 
+### Local File Inclusion + Directory Listing
+
 Utilizando la herramienta `cURL` vamos a intentar mandar una petición por GET
-
-
 
 ```bash
 ❯ curl -X GET 'http://10.10.11.204:8080/show_image?img=../'
@@ -102,10 +102,7 @@ uploads
 curl: (18) transfer closed with 4073 bytes remaining to read
 ```
 
-
-
 Indagando un poco en la máquina, encontramos el archivo `pom.xml` en la ruta `http://10.10.11.204:8080/show_image?img=../../../../../../var/www/WebApp/pom.xml`
-
 
 
 ![Pom.xml](/assets/img/commons/Inject/pom.xml.png)
@@ -114,7 +111,7 @@ Indagando un poco en la máquina, encontramos el archivo `pom.xml` en la ruta `h
 
 Y observamos que está utilizando `Spring Boot`, y así mismo, `springframework.cloud`
 
-
+### Information Leakage
 
 También encotramos un archivo de configuración, con credenciales en texto claro, que posiblemente nos sirvan más adelante
 
@@ -128,7 +125,7 @@ settings.xml
 
 ## Explotación de Vulnerabilidades
 
-
+### Spring Cloud Exploitation (CVE-2022-22963) [Spring4Shell]
 Encontramos la vulnerabilidad [CVE-2022-22963](https://github.com/J0ey17/CVE-2022-22963_Reverse-Shell-Exploit) la cual permite que mediante el uso de las cabeceras, y por una petición por POST al servidor con una ruta especifica, nos da una ejecución remota de comandos (RCE)
 
 
@@ -155,6 +152,8 @@ Montamos un servidor por el puerto `80`, con `python3`, y nos compartimos este r
 
 
 ## Post Explotación
+
+### Abusing Cron Job
 
 Ahora vamos a revisar como podemos escalar privilegios, para ellos, vamos a ver que tareas se están enecutando
 
@@ -191,7 +190,7 @@ Vemos que está ejecutando todo lo que encuentre en `/opt/automation/tasks/\*.ym
 
 Luego, borra todo lo que encuentre en la carpeta, reemplazadolo por un archivo que solo tiene acceso root
 
-
+### Malicious Ansible Playbook
 
 Tenemos acceso a escritura dentro de esta ruta, por lo tanto, vamos a crear un `playbook` malicioso, que nos permita asignarle permisos `SUID` a `/bin/bash`
 
