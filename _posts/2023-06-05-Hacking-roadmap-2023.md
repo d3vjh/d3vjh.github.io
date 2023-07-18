@@ -4,8 +4,9 @@ author: d3vjh
 date: 2023-06-05
 categories: []
 tags: []
+pin: true
 image: 
-  path: /assets/img/Hacking/Hacking.png
+  path: /assets/img/Hacking/Hacking.jpeg
 ---
 
 
