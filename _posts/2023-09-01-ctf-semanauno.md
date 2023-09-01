@@ -4,6 +4,8 @@ author: d3vjh
 date: 2023-09-01
 categories: [CTF]
 tags: [GISAC]
+ image: 
+   path: /assets/img/gisac/gisaclogo.png
 ---
 
 ## CTF Semana 1
