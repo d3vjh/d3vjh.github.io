@@ -22,11 +22,13 @@ Es importante tener permisos de Amdn, para así poder utilizar el parámetro `-P
 ```bash
 sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn {ip_target} -oG allPorts
 ```
+{: .nolineno }
 
 Una vez tenemos los puertos, es importante obtener la versión y el servicio que se estan ejecutando en los puertos anteriormente encontrados
 ```bash
 nmap -sCV -p{ports} {ip_target} -oN target
 ```
+{: .nolineno }
 
 ### Gobuster
 
@@ -34,12 +36,14 @@ nmap -sCV -p{ports} {ip_target} -oN target
 ```bash
 gobuster dir -u {url} -w {wordList} -t {Threads}
 ```
+{: .nolineno }
 
 A nivel de Subdominios: 
 
 ```bash
 gobuster vhost -u {url} -w {wordList} -t {Threads:20}
 ```
+{: .nolineno }
 
 ### Puertos y servicios
 
@@ -50,6 +54,7 @@ Puede ser útil en la fase de enumeración para identificar procesos en ejecuci�
 lsof -i :{port_number}
 lsof -i :80
 ```
+{: .nolineno }
 
 #### netstat
 
@@ -59,6 +64,7 @@ Se utiliza para mostrar información y estadísticas relacionadas con las conexi
 netstat -tulnp
 netstat -nat
 ```
+{: .nolineno }
 
 |Parámetro|Función                                    |
 |:-------:|:-----------------------------------------:|
@@ -71,9 +77,11 @@ netstat -nat
 
 ### tcpdump
 Para ponernos en escucha, en espera a recibir una traza icmp
+
 ```bash
 tcpdump -i {interface} icmp -n
 ```
+{: .nolineno }
 
 ### Tratamiento de la TTY
 ```bash
@@ -88,22 +96,28 @@ stty rows (44) columns (184)
 ```
 
 
+
 ### Tareas Cron
 
 Para ver que se está ejecutando a intervalos regulares de tiempo, podemos ejecutar este comando
 ```bash
 systemctl list-timers
 ```
+{: .nolineno }
+
 
 Este sirve para ver que está corriendo, y que usuario lo ha ejecutado
 
 ```bash
 ps -eo user,command
 ```
+{: .nolineno }
+
 ### John The Ripper
 ```bash
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
 ```
+{: .nolineno }
 
 ### watch
 Para revisar el mismo comando cada $x$ tiempo:
@@ -111,6 +125,7 @@ Para revisar el mismo comando cada $x$ tiempo:
 watch -n {s} {command}
 watch -n 1 ls -l /bin/bash
 ```
+{: .nolineno }
 
 ### searchsploit
 ```bash
@@ -128,6 +143,7 @@ FreePBX 2.10.0 / Elastix 2.2.0 - Remote Code Execution                        | 
 ------------------------------------------------------------------------------ -------------------------
 Shellcodes: No Results
 ```
+{: .nolineno }
 
 ```bash
 ❯ searchsploit -x php/webapps/37637.pl
@@ -138,3 +154,48 @@ Shellcodes: No Results
  Verified: True
 File Type: ASCII text
 ```
+{: .nolineno }
+
+
+
+### crackmapexec
+```bash
+crackmapexec smb <ip_target>
+```
+
+### responder
+
+
+
+
+### smbclient
+
+
+
+
+### rpcclient
+
+
+### kerberos
+
+### evil-winrm
+```bash
+evil-winrm -i {ip_target} -u {user_target} -p {user_passwd}
+```
+{: .nolineno }
+
+
+
+## Ataques
+
+### AS-REP Roasting Attack
+
+Que utiliza la suite `impacket`, se debe tener en cuenta que debemos tener:
+[ x ] Listado de usuarios (users.txt)
+[x] Dominio (contoso.com)
+
+La máquina Forest toca esta vulnerabilidad
+```bash
+GetNPUsers.py contoso.com/ -no-pass -usersfile users.txt
+```
+{: .nolineno }
