@@ -4,8 +4,8 @@ author: d3vjh
 date: 2023-06-05
 categories: [Networks, Packet Tracer]
 tags: [Router, Switch, DHCP, Server]
-image: 
-  path: /assets/img/Networks/basicConfiguration/packetTracer.png
+img_path: /assets/img/Networks/basicConfiguration/
+image: packetTracer.png
 ---
 
 # ¿Que es red?
@@ -16,8 +16,8 @@ Vamos a iniciar con las clases C, debido a que son las más utilizadas a la hora
 
 Como máximo solo vamos a tener 254 hosts disponibles en una conexión.
 
-![Light mode only](/assets/img/Networks/basicConfiguration/WPorciones.png){: .light }
-![Dark mode only](/assets/img/Networks/basicConfiguration/DPorciones.png){: .dark }
+![Light mode only](WPorciones.png){: .light }
+![Dark mode only](DPorciones.png){: .dark }
 
 El rango de las direcciones ip son
 
@@ -52,8 +52,8 @@ Teniendo esto claro, vamos a configurar los dispositivos
 
 Iniciamos con la parte `LAN`
 
-![Router 1 Light](/assets/img/Networks/basicConfiguration/WRouter1.png){: .light }
-![Router 1 Dark](/assets/img/Networks/basicConfiguration/DRouter1.png){: .dark }
+![Router 1 Light](WRouter1.png){: .light }
+![Router 1 Dark](DRouter1.png){: .dark }
 
 Cambiamos el nombre
 
@@ -138,8 +138,8 @@ Router1(config-if)#end
 {: .nolineno }
 
 
-![Router Switch Light](/assets/img/Networks/basicConfiguration/WRouterSwitch.png){: .light }
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DRouterSwitch.png){: .dark }
+![Router Switch Light](WRouterSwitch.png){: .light }
+![Router Switch Dark](DRouterSwitch.png){: .dark }
 
 
 ### Red Pública
@@ -149,8 +149,8 @@ Importante tener los puertos serial en ambos Switch
 Vamos a utilizar una IP Clase `A  100.0.0.0` y vamos a conectarlos por el puerto `Se0/0/0` de cada uno
 
 
-![Router Switch Light](/assets/img/Networks/basicConfiguration/WRouterSerial.png){: .light }
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DRouterSerial.png){: .dark }
+![Router Switch Light](WRouterSerial.png){: .light }
+![Router Switch Dark](DRouterSerial.png){: .dark }
 
 ```python
 Router1(config)#interface serial 0/0/0
@@ -161,8 +161,8 @@ Router1(config-if)#end
 
 Es decir, hasta el momento llevamos nuestra topología asii
 
-![Router Switch Light](/assets/img/Networks/basicConfiguration/WTopologia1.png){: .light }
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DTopologia1.png){: .dark }
+![Router Switch Light](WTopologia1.png){: .light }
+![Router Switch Dark](DTopologia1.png){: .dark }
 
 
 ## Servidor
@@ -179,19 +179,18 @@ El servicio DHCP permite repartir IPs dentro de la red, de manera automática
 6. Guardamos la configuración
 
 
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DHCP.png)_DHCP Configuration_
+![Router Switch Dark](DHCP.png)_DHCP Configuration_
 
 ## Topología Final
 
 Agregamos dos computadores, y les establecemos que reciban la IP por DHCP
 
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DHCPRequest.png)_DHCP Request_
+![Router Switch Dark](DHCPRequest.png)_DHCP Request_
 
 Y finalizamos así
 
-![Router Switch Light](/assets/img/Networks/basicConfiguration/WFinal.png){: .light }
-![Router Switch Dark](/assets/img/Networks/basicConfiguration/DFinal.png){: .dark }
-
+![Router Switch Light](WFinal.png){: .light }
+![Router Switch Dark](DFinal.png){: .dark }
 
 
 
