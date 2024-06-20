@@ -11,7 +11,14 @@ El propósito de esta sección, es ir alimentandolo, a medida que encuentre coma
   * [Puertos y Servicios](#puertos-y-servicios)
     - [lsof](#lsof)
     - [netstat](#netstat)
+- [Análisis de Vulnerabilidades](#explotación-y-post-explotación)
+  * [Hydra](#hydra)
+- [Explotación y Post-Explotación](#explotación-y-post-explotación)
+  * [Tratamiento TTY Linux](#tratamiento-de-la-tty---linux)
+  * [Tratamiento TTY Windows](#tratamiento-de-la-tty---windows)
+  * [Nmap](#nmap)
 
+[comment]: <> ([+]---------------------Reconocimiento---------------------[+])
 ## Reconocimiento
 
 ### Nmap
@@ -32,7 +39,6 @@ nmap -sCV -p{ports} {ip_target} -oN target
 
 ### Gobuster
 
-
 ```bash
 gobuster dir -u {url} -w {wordList} -t {Threads}
 ```
@@ -44,6 +50,24 @@ A nivel de Subdominios:
 gobuster vhost -u {url} -w {wordList} -t {Threads:20}
 ```
 {: .nolineno }
+
+### WFUZZ
+
+### Hydra
+Hydra es la mejor herramienta para aplicar fuerza bruta en distintos componentes
+
+#### ssh
+Fuerza bruta a un servicio ssh
+```bash
+hydra -L <dicUsers.txt> -P <dicPass.txt> <IP Target> ssh -t <threads> # Usamos diccionarios
+hydra -l pepito -p pepitoPass <IP Target> ssh -t <threads> # Conocemos Usuario o Contraseña
+hydra -s <port> # Cambia el puerto
+hydra -M <IP Targets List> # Tenemos una lista de IPs
+-V # Agrega verbosidad por pantalla
+-e nsr # Uso en CTFs n:Null - s:SamePass - r:reverse
+```
+{: .nolineno }
+
 
 ### Puertos y servicios
 
@@ -73,7 +97,7 @@ netstat -nat
 | `-l`    |Puertos en escucha                         |
 | `-n`    |Direcciones IP y puertos en números        |
 | `-p`    |Proceso asociado a cada conexión o servicio|
-| `-a`   |Todas las conexiones y puertos, incluyendo los que están en escucha y los que están establecidos|
+| `-a`    |Todas las conexiones y puertos, incluyendo los que están en escucha y los que están establecidos|
 
 ### tcpdump
 Para ponernos en escucha, en espera a recibir una traza icmp
@@ -83,17 +107,66 @@ tcpdump -i {interface} icmp -n
 ```
 {: .nolineno }
 
-### Tratamiento de la TTY
+
+
+[comment]: <> ([+]---------------------Explotación y Post-Explotación---------------------[+])
+## Explotación y Post-Explotación
+
+### Tratamiento de la TTY - Linux
+
+Primero es importante colocar algún puerto en escucha utilizando ncat
+
+```bash
+nc -nlvp <port>
+```
+{: .nolineno }
+
+
+|Parámetro|Función                                    |
+|:-------:|:-----------------------------------------:|
+| `-n`    |Solo conexiónes mediante IP no DNS         |
+| `-l`    |Escucha (Listen)                           |
+| `-v`    |Verbose, más detalle por pantalla          |
+| `-p`    |Puerto por el que va a trabajar (Escuchar) |
+
+Posterior vamos a ejecutar esta serie de comandos, lo que esté en {} va a ser opcional
+
 ```bash
 script /dev/null -c bash
 Ctrl + Z
 stty raw -echo; fg
 reset xterm
+export TERM=xterm
+# Si quieres colores puedes realizar esto
 export TERM=xterm-256color
 source /etc/skel/.bashrc
+
 → stty size 
-stty rows (44) columns (184)
+stty rows (45) columns (184) 
 ```
+
+### Tratamiento de la TTY - Windows
+
+Primero es importante colocar algún puerto en escucha utilizando ncat, acá podemos jugar también con `rlwrap`
+
+```bash
+rlwrap -cAr nc -nlvp <port>
+```
+
+|Parámetro|Función                                                |
+|:-------:|:-----------------------------------------------------:|
+| `-c`    | Habilita el autocompletado de nombres de archivo      |
+| `-A`    | Funciona mejor con comandos que utilizan colores ANSI |
+| `-r`    | recordar todas las palabras para autocompletado       |
+
+
+
+
+
+
+
+
+[comment]: <> ([+]---------------------Análisis de Vulnerabilidades---------------------[+])
 
 
 

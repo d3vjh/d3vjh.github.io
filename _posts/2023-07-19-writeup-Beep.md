@@ -1,5 +1,5 @@
 ---
-title: Inject Beep
+title: Beep Writeup
 author: d3vjh
 date: 2023-07-19
 categories: [Writeup, HTB]
@@ -125,7 +125,7 @@ Intentamos buscar exploits que afecten este servicio, y encontramos en [searchsp
 Elastix - 'page' Cross-Site Scripting                               | php/webapps/38078.py
 Elastix - Multiple Cross-Site Scripting Vulnerabilities             | php/webapps/38544.txt
 Elastix 2.0.2 - Multiple Cross-Site Scripting Vulnerabilities       | php/webapps/34942.txt
-Elastix 2.2.0 - 'graph.php' Local File Inclusion ✅                 | php/webapps/37637.pl ✅
+Elastix 2.2.0 - 'graph.php' Local File Inclusion ✅               | php/webapps/37637.pl ✅
 Elastix 2.x - Blind SQL Injection                                   | php/webapps/36305.txt
 Elastix < 2.5 - PHP Code Injection                                  | php/webapps/38091.php
 FreePBX 2.10.0 / Elastix 2.2.0 - Remote Code Execution              | php/webapps/18650.py

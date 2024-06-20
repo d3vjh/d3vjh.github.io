@@ -1,5 +1,5 @@
 ---
-title: Basic Configutarion
+title: Basic Configuration
 author: d3vjh
 date: 2023-06-05
 categories: [Networks, Packet Tracer]
