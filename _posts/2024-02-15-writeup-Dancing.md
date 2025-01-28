@@ -9,7 +9,7 @@ image: /assets/img/commons/Dancing/Dancing.png
 
 ## Recopilación de información
 
-![Untitled](1.png)
+![Untitled](/assets/img/commons/Dancing/1.png)
 
 ```bash
 ❯ ping -c 1 10.129.197.183
