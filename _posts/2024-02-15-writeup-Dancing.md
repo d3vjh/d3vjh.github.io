@@ -4,8 +4,7 @@ author: d3vjh
 date: 2024-02-15 12:00:00 +0000
 categories: [Security, HTB]
 tags: [Windows, Enumeration, Exploitation]
-img_path: /assets/img/commons/Dancing/
-image: Dancing.png
+image: /assets/img/commons/Dancing/Dancing.png
 ---
 
 ## Recopilación de información
@@ -114,6 +113,6 @@ smb: \James.P\> get flag.txt
 
 Revisamos los archivos descargados y analizamos el contenido:
 
-![Archivo 1](2.png)  
-![Archivo 2](3.png)
+![Archivo 1](/assets/img/commons/Dancing/2.png)  
+![Archivo 2](/assets/img/commons/Dancing/3.png)
 
