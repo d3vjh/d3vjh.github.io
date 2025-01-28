@@ -1,6 +1,6 @@
 ---
 title: Captura de tráfico HTTP
-author: [Miguel Pinilla, Jhonatan Moreno]
+authors: [2, 1]
 date: 2024-05-28
 categories: [Cybersecurity, HTTP]
 tags: [Traffic, Wireshark, HTTP]

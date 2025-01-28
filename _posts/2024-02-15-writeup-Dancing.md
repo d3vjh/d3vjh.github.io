@@ -7,6 +7,8 @@ tags: [Windows, Enumeration, Exploitation]
 image: /assets/img/commons/Dancing/Dancing.png
 ---
 
+Dancing es una máquina del Starting Point, para ser de Sistema Operativo Windows, es una excelente máquina para iniciar
+
 ## Recopilación de información
 
 ![Untitled](/assets/img/commons/Dancing/1.png)
